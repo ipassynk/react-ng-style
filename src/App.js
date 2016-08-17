@@ -21,7 +21,7 @@ class App extends Component {
 
     componentWillMount() {
         this.interval = setInterval(()=>
-                this.setState(({color})=> ({color: `${this.state.color === 'pink' ? 'blue' : 'pink'}`})),
+                this.setState(({color})=> ({color: `${color === 'pink' ? 'blue' : 'pink'}`})),
             2000);
     }
 
@@ -32,6 +32,8 @@ class App extends Component {
     }
 
     render() {
+        let {color} = this.state;
+
         return (
             <div className="App">
                 <div className="App-header">
@@ -39,7 +41,7 @@ class App extends Component {
                     <h2>Welcome to React</h2>
                 </div>
 
-                <p style={styles[`state-${this.state.color}`]}>My text {`state-${this.state.color}`}</p>
+                <p style={styles[`state-${color}`]}>My text {`state-${color}`}</p>
             </div>
         );
     }
