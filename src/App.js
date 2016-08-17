@@ -2,16 +2,11 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const styles = {
-    'state-pink': {
-        padding: 20,
-        backgroundColor: 'pink'
-    },
-    'state-blue': {
-        padding: 20,
-        backgroundColor: 'blue'
-    }
-};
+const styles = ['pink', 'blue'].reduce((acc, color) => {
+    acc[`state-${color}`] = {padding: 20, backgroundColor: `${color}`};
+    return acc;
+}, {});
+
 
 class App extends Component {
     constructor() {
